@@ -1,0 +1,112 @@
+/*
+ * colors.tokens.css — 컬러 토큰 (Figma → 코드)
+ *
+ * 출처: Figma "공유_Design Style Guide" node 6642-26084 (get_variable_defs).
+ * 이 파일은 *.tokens.css 이므로 check-hardcode hook 의 raw 값 예외 대상이다.
+ *
+ * 구조: Primitive(:root, 값 기반) → Semantic(@theme, var() 참조).
+ *  - Primitive 는 참조 전용(유틸리티 생성 안 함).
+ *  - Semantic 만 @theme 에 두어 Tailwind 유틸(bg-primary 등)을 생성한다.
+ */
+
+/* ============================================================
+ * Primitive — Figma 변수 1:1 (값 기반, 참조 전용)
+ * Figma 변수명 '/' → '-'
+ * ============================================================ */
+:root {
+  /* ---- Brand ---- */
+  --color-brand-shinhan-blue: #0046FF;
+
+  /* ---- Primary (Blue scale) ---- */
+  --color-primary-100: #EFF5FF;
+  --color-primary-200: #E5EEFF;
+  --color-primary-300: #CDE0FF;
+  --color-primary-400: #9DC1FF;
+  --color-primary-500: #689EFF;
+  --color-primary-600: #4A86FF;
+  --color-primary-700: #2670FF;
+  --color-primary-800: #005DF9;
+  --color-primary-900: #0047E7;
+
+  /* ---- Greyscale (02 Greyscale) ---- */
+  --color-greyscale-200: #E7EDF6;
+  --color-greyscale-300: #DCE2ED;
+  --color-greyscale-400: #C7CEDC;
+  --color-greyscale-500: #8B95A9;
+  --color-greyscale-550: #7E889B;
+  --color-greyscale-600: #576072;
+  --color-greyscale-700: #373E4D;
+  --color-greyscale-800: #242A34;
+  --color-greyscale-900: #121315;
+
+  /* ---- Neutral (Secondary color/Neutral) ---- */
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-100: #F3F6FB;
+  --color-neutral-550: #7E889B;
+
+  /* ---- Grey Scale (별도 컬렉션 — greyscale 와 레벨 겹치나 값 다름) ---- */
+  --color-grey-600: #5F6372;
+  --color-grey-800: #30323B;
+  --color-grey-900: #101116;
+
+  /* ---- State ---- */
+  --color-state-red: #D61111;
+  --color-state-green: #158463;
+
+  /* ---- Label (Deep) ---- */
+  --color-label-purple-deep: #9336FF;
+  --color-label-green-deep: #008479;
+  --color-label-orange-deep: #FF4512;
+  --color-label-neutral-light-gray: #CECECE;
+
+  /* ---- Label color/Red (Deep·Mid) — Semantic color/Label color/Red ---- */
+  --color-label-red-deep: #E21717;
+  --color-label-red-mid: #FFC3C3;
+
+  /* ---- Label color/Neutral — Semantic color/Label color/Neutral ---- */
+  --color-label-neutral-deep: #545454;
+
+  /* ---- Label color/Orange (Yellow·Mid·Light) — Semantic color/Label color/Orange ---- */
+  --color-label-orange-yellow: #FFEAB5;
+  --color-label-orange-mid: #F46D00;
+  --color-label-orange-light: #FFD6B6;
+
+  /* ---- Label color/Purple (Mid) — Semantic color/Label color/Purple ---- */
+  --color-label-purple-mid: #EDDDFF;
+
+  /* ---- Label color/Green (Mid) — Semantic color/Label color/Green ---- */
+  --color-label-green-mid: #C1EAE7;
+
+  /* ---- Gauge ---- */
+  --color-gauge-blue: #368DED;
+  --color-gauge-green: #37D8D0;
+  --color-gauge-purple: #8166D2;
+
+  /* ---- Text / Dimmed ---- */
+  --color-text-white: #FFFFFF;
+  --color-text-body: #272B2F; /* Text/colorText_body */
+  --color-dim: #00000099; /* 000000 @ 60% */
+}
+
+/* ============================================================
+ * Semantic — 역할 기반 (Primitive 를 var() 로 참조)
+ * Tailwind v4 유틸리티(bg-primary, text-fg, ...)를 생성한다.
+ * ============================================================ */
+@theme {
+  --color-primary: var(--color-brand-shinhan-blue);
+  --color-primary-hover: var(--color-primary-900);
+  --color-secondary: var(--color-greyscale-600); /* ⚠️ Figma 역할 미명시 — 잠정 매핑 */
+
+  --color-bg: var(--color-neutral-0);
+  --color-surface: var(--color-neutral-100);
+  --color-border: var(--color-greyscale-300);
+
+  --color-fg: var(--color-greyscale-900);
+  --color-fg-muted: var(--color-greyscale-600);
+  --color-on-primary: var(--color-text-white);
+
+  --color-danger: var(--color-state-red);
+  --color-success: var(--color-state-green);
+
+  --color-overlay: var(--color-dim);
+}
