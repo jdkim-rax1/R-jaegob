@@ -12,19 +12,19 @@
   --layout-viewport-w: 1920px; /* PC_1920 */
 
   /* ---- 고정 영역 ---- */
-  --layout-header-h: 70px;     /* 상단바 높이 */
-  --layout-lnb-w: 272px;       /* 좌측 네비(LNB) 폭, Fixed */
-  --layout-lnb-2depth-w: 200px;/* 2-depth LNB 패널 폭, Figma 273-50101 */
-  --layout-lnb-rail-w: 72px;   /* 1-depth LNB 아이콘 레일 폭, Figma 273-36843 */
-  --layout-lnb-max-w: 306px;   /* LNB 최대 폭 */
-  --layout-filter-w: 320px;    /* 우측 필터 패널, Fixed */
-  --layout-filter-alt-w: 272px;/* 필터 변형 폭 */
-  --layout-step-w: 270px;      /* Layer Popup 좌측 Step 패널, Fixed */
+  --layout-header-h: 70px; /* 상단바 높이 */
+  --layout-lnb-w: 272px; /* 좌측 네비(LNB) 폭, Fixed */
+  --layout-lnb-2depth-w: 200px; /* 2-depth LNB 패널 폭, Figma 273-50101 */
+  --layout-lnb-rail-w: 72px; /* 1-depth LNB 아이콘 레일 폭, Figma 273-36843 */
+  --layout-lnb-max-w: 306px; /* LNB 최대 폭 */
+  --layout-filter-w: 320px; /* 우측 필터 패널, Fixed */
+  --layout-filter-alt-w: 272px; /* 필터 변형 폭 */
+  --layout-step-w: 270px; /* Layer Popup 좌측 Step 패널, Fixed */
   --layout-modal-lg-w: 1102px; /* Large 모달 폭, Figma 40000001-41787 */
 
   /* ---- 간격 ---- */
-  --layout-col-gap: 48px;        /* 컬럼 간 수평 간격 (LNB↔Contents↔Filter) */
-  --layout-content-inset-y: 40px;/* 본문 상·하 여백 (Header 아래 / 하단) */
+  --layout-col-gap: 48px; /* 컬럼 간 수평 간격 (LNB↔Contents↔Filter) */
+  --layout-content-inset-y: 40px; /* 본문 상·하 여백 (Header 아래 / 하단) */
 
   /* ---- 본문 기준폭 (2컬럼: viewport − LNB − gap×2) = 1552px ---- */
   --layout-content-w: calc(

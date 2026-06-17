@@ -1,61 +1,76 @@
-import { useEffect, useRef, useState } from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
-import { FIGMA_BASE } from './tokenStory.helpers'
+import { useEffect, useRef, useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { FIGMA_BASE } from "./tokenStory.helpers";
 
 /**
  * typography.tokens.css 의 합성 타이포 토큰(@utility text-*) 시각화.
  * 각 행은 클래스명 + 계산된 스펙(size/line-height/weight) + 샘플 텍스트.
  */
 const meta: Meta = {
-  title: 'Tokens/Typography',
+  title: "Tokens/Typography",
   parameters: {
-    layout: 'fullscreen',
-    design: { type: 'figma', url: `${FIGMA_BASE}6642-26106` },
+    layout: "fullscreen",
+    design: { type: "figma", url: `${FIGMA_BASE}6642-26106` },
   },
-}
-export default meta
-type Story = StoryObj
+};
+export default meta;
+type Story = StoryObj;
 
 const GROUPS: { label: string; styles: string[] }[] = [
   {
-    label: 'Headline',
+    label: "Headline",
     styles: [
-      'text-headline1-bold', 'text-headline1-semibold', 'text-headline2-product',
-      'text-headline2-bold', 'text-headline2-semibold',
+      "text-headline1-bold",
+      "text-headline1-semibold",
+      "text-headline2-product",
+      "text-headline2-bold",
+      "text-headline2-semibold",
     ],
   },
   {
-    label: 'Title',
+    label: "Title",
     styles: [
-      'text-title1-bold', 'text-title1-semibold', 'text-title2-bold',
-      'text-title2-semibold', 'text-title3-bold', 'text-title3-semibold',
-      'text-title4-bold', 'text-title4-semibold',
+      "text-title1-bold",
+      "text-title1-semibold",
+      "text-title2-bold",
+      "text-title2-semibold",
+      "text-title3-bold",
+      "text-title3-semibold",
+      "text-title4-bold",
+      "text-title4-semibold",
     ],
   },
   {
-    label: 'Body',
+    label: "Body",
     styles: [
-      'text-body1-semibold', 'text-body1-regular', 'text-body2-semibold',
-      'text-body2-regular', 'text-body3-semibold', 'text-body3-regular',
+      "text-body1-semibold",
+      "text-body1-regular",
+      "text-body2-semibold",
+      "text-body2-medium",
+      "text-body2-regular",
+      "text-body3-semibold",
+      "text-body3-regular",
     ],
   },
   {
-    label: 'Caption',
+    label: "Caption",
     styles: [
-      'text-caption1-semibold', 'text-caption1-regular',
-      'text-caption2-semibold', 'text-caption2-regular',
+      "text-caption1-semibold",
+      "text-caption1-regular",
+      "text-caption2-semibold",
+      "text-caption2-regular",
     ],
   },
-]
+];
 
 function Row({ cls }: { cls: string }) {
-  const ref = useRef<HTMLParagraphElement>(null)
-  const [spec, setSpec] = useState('')
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [spec, setSpec] = useState("");
   useEffect(() => {
-    if (!ref.current) return
-    const cs = getComputedStyle(ref.current)
-    setSpec(`${cs.fontSize} / ${cs.lineHeight} · ${cs.fontWeight}`)
-  }, [])
+    if (!ref.current) return;
+    const cs = getComputedStyle(ref.current);
+    setSpec(`${cs.fontSize} / ${cs.lineHeight} · ${cs.fontWeight}`);
+  }, []);
   return (
     <div className="flex flex-col gap-1 border-b border-border pb-4">
       <div className="flex items-baseline justify-between gap-4">
@@ -63,10 +78,10 @@ function Row({ cls }: { cls: string }) {
         <code className="text-caption2-regular text-fg-muted">{spec}</code>
       </div>
       <p ref={ref} className={`${cls} text-fg`}>
-        다람쥐 헌 쳇바퀴에 타고파 Sphinx 0123
+        프로젝트 상태를 빠르게 확인합니다 Sphinx 0123
       </p>
     </div>
-  )
+  );
 }
 
 export const All: Story = {
@@ -82,4 +97,4 @@ export const All: Story = {
       ))}
     </div>
   ),
-}
+};

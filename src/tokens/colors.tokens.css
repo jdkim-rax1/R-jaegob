@@ -15,76 +15,76 @@
  * ============================================================ */
 :root {
   /* ---- Brand ---- */
-  --color-brand-shinhan-blue: #0046FF;
+  --color-brand-shinhan-blue: #0046ff;
 
   /* ---- Primary (Blue scale) ---- */
-  --color-primary-100: #EFF5FF;
-  --color-primary-200: #E5EEFF;
-  --color-primary-300: #CDE0FF;
-  --color-primary-400: #9DC1FF;
-  --color-primary-500: #689EFF;
-  --color-primary-600: #4A86FF;
-  --color-primary-700: #2670FF;
-  --color-primary-800: #005DF9;
-  --color-primary-900: #0047E7;
+  --color-primary-100: #eff5ff;
+  --color-primary-200: #e5eeff;
+  --color-primary-300: #cde0ff;
+  --color-primary-400: #9dc1ff;
+  --color-primary-500: #689eff;
+  --color-primary-600: #4a86ff;
+  --color-primary-700: #2670ff;
+  --color-primary-800: #005df9;
+  --color-primary-900: #0047e7;
 
   /* ---- Greyscale (02 Greyscale) ---- */
-  --color-greyscale-200: #E7EDF6;
-  --color-greyscale-300: #DCE2ED;
-  --color-greyscale-400: #C7CEDC;
-  --color-greyscale-500: #8B95A9;
-  --color-greyscale-550: #7E889B;
+  --color-greyscale-200: #e7edf6;
+  --color-greyscale-300: #dce2ed;
+  --color-greyscale-400: #c7cedc;
+  --color-greyscale-500: #8b95a9;
+  --color-greyscale-550: #7e889b;
   --color-greyscale-600: #576072;
-  --color-greyscale-700: #373E4D;
-  --color-greyscale-800: #242A34;
+  --color-greyscale-700: #373e4d;
+  --color-greyscale-800: #242a34;
   --color-greyscale-900: #121315;
 
   /* ---- Neutral (Secondary color/Neutral) ---- */
-  --color-neutral-0: #FFFFFF;
-  --color-neutral-100: #F3F6FB;
-  --color-neutral-550: #7E889B;
+  --color-neutral-0: #ffffff;
+  --color-neutral-100: #f3f6fb;
+  --color-neutral-550: #7e889b;
 
   /* ---- Grey Scale (별도 컬렉션 — greyscale 와 레벨 겹치나 값 다름) ---- */
-  --color-grey-600: #5F6372;
-  --color-grey-800: #30323B;
+  --color-grey-600: #5f6372;
+  --color-grey-800: #30323b;
   --color-grey-900: #101116;
 
   /* ---- State ---- */
-  --color-state-red: #D61111;
+  --color-state-red: #d61111;
   --color-state-green: #158463;
 
   /* ---- Label (Deep) ---- */
-  --color-label-purple-deep: #9336FF;
+  --color-label-purple-deep: #9336ff;
   --color-label-green-deep: #008479;
-  --color-label-orange-deep: #FF4512;
-  --color-label-neutral-light-gray: #CECECE;
+  --color-label-orange-deep: #ff4512;
+  --color-label-neutral-light-gray: #cecece;
 
   /* ---- Label color/Red (Deep·Mid) — Semantic color/Label color/Red ---- */
-  --color-label-red-deep: #E21717;
-  --color-label-red-mid: #FFC3C3;
+  --color-label-red-deep: #e21717;
+  --color-label-red-mid: #ffc3c3;
 
   /* ---- Label color/Neutral — Semantic color/Label color/Neutral ---- */
   --color-label-neutral-deep: #545454;
 
   /* ---- Label color/Orange (Yellow·Mid·Light) — Semantic color/Label color/Orange ---- */
-  --color-label-orange-yellow: #FFEAB5;
-  --color-label-orange-mid: #F46D00;
-  --color-label-orange-light: #FFD6B6;
+  --color-label-orange-yellow: #ffeab5;
+  --color-label-orange-mid: #f46d00;
+  --color-label-orange-light: #ffd6b6;
 
   /* ---- Label color/Purple (Mid) — Semantic color/Label color/Purple ---- */
-  --color-label-purple-mid: #EDDDFF;
+  --color-label-purple-mid: #edddff;
 
   /* ---- Label color/Green (Mid) — Semantic color/Label color/Green ---- */
-  --color-label-green-mid: #C1EAE7;
+  --color-label-green-mid: #c1eae7;
 
   /* ---- Gauge ---- */
-  --color-gauge-blue: #368DED;
-  --color-gauge-green: #37D8D0;
-  --color-gauge-purple: #8166D2;
+  --color-gauge-blue: #368ded;
+  --color-gauge-green: #37d8d0;
+  --color-gauge-purple: #8166d2;
 
   /* ---- Text / Dimmed ---- */
-  --color-text-white: #FFFFFF;
-  --color-text-body: #272B2F; /* Text/colorText_body */
+  --color-text-white: #ffffff;
+  --color-text-body: #272b2f; /* Text/colorText_body */
   --color-dim: #00000099; /* 000000 @ 60% */
 }
 
@@ -95,7 +95,9 @@
 @theme {
   --color-primary: var(--color-brand-shinhan-blue);
   --color-primary-hover: var(--color-primary-900);
-  --color-secondary: var(--color-greyscale-600); /* ⚠️ Figma 역할 미명시 — 잠정 매핑 */
+  --color-secondary: var(
+    --color-greyscale-600
+  ); /* ⚠️ Figma 역할 미명시 — 잠정 매핑 */
 
   --color-bg: var(--color-neutral-0);
   --color-surface: var(--color-neutral-100);

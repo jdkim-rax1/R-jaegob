@@ -1,13 +1,13 @@
-import { SegmentTabItem } from './SegmentTabItem'
+import { SegmentTabItem } from "./SegmentTabItem";
 
 export interface SegmentTabProps {
   /** 세그먼트 라벨 목록 (Figma segment 2~3) */
-  items: string[]
+  items: string[];
   /** 활성 세그먼트 인덱스 */
-  value?: number
+  value?: number;
   /** 세그먼트 클릭 시 인덱스 전달 */
-  onChange?: (index: number) => void
-  className?: string
+  onChange?: (index: number) => void;
+  className?: string;
 }
 
 /**
@@ -23,10 +23,10 @@ export function SegmentTab({
   return (
     <div
       role="tablist"
-      style={{ backgroundColor: 'var(--color-neutral-100)' }}
-      className={['flex w-full gap-1 rounded-md p-1', className]
+      style={{ backgroundColor: "var(--color-neutral-100)" }}
+      className={["flex w-full gap-1 rounded-md p-1", className]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       {items.map((label, index) => (
         <SegmentTabItem
@@ -40,5 +40,5 @@ export function SegmentTab({
         </SegmentTabItem>
       ))}
     </div>
-  )
+  );
 }

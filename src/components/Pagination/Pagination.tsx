@@ -1,13 +1,13 @@
-import { Icon } from '../Icon/Icon'
+import { Icon } from "../Icon/Icon";
 
 export interface PaginationProps {
   /** 현재 페이지 (1-based) */
-  page: number
+  page: number;
   /** 전체 페이지 수 */
-  total: number
+  total: number;
   /** 페이지 변경 시 새 페이지 번호 전달 */
-  onChange?: (page: number) => void
-  className?: string
+  onChange?: (page: number) => void;
+  className?: string;
 }
 
 /** 화살표 버튼 — 활성 greyscale-600 / 비활성(boundary) greyscale-400. 아이콘은 currentColor 상속. */
@@ -17,10 +17,10 @@ function ArrowButton({
   disabled,
   onClick,
 }: {
-  icon: 'left-double' | 'small-left' | 'small-right' | 'right-double'
-  label: string
-  disabled: boolean
-  onClick: () => void
+  icon: "left-double" | "small-left" | "small-right" | "right-double";
+  label: string;
+  disabled: boolean;
+  onClick: () => void;
 }) {
   return (
     <button
@@ -30,14 +30,14 @@ function ArrowButton({
       onClick={onClick}
       style={{
         color: disabled
-          ? 'var(--color-greyscale-400)'
-          : 'var(--color-greyscale-600)',
+          ? "var(--color-greyscale-400)"
+          : "var(--color-greyscale-600)",
       }}
       className="flex size-6 shrink-0 cursor-pointer items-center justify-center disabled:cursor-not-allowed"
     >
       <Icon name={icon} size={24} color="current" />
     </button>
-  )
+  );
 }
 
 /**
@@ -46,20 +46,25 @@ function ArrowButton({
  * 활성 페이지: primary-800 / SemiBold, 비활성: greyscale-550 / Regular.
  * 색은 semantic 유틸이 없어 inline var() 로 참조(LineTab 패턴).
  */
-export function Pagination({ page, total, onChange, className }: PaginationProps) {
+export function Pagination({
+  page,
+  total,
+  onChange,
+  className,
+}: PaginationProps) {
   const go = (next: number) => {
-    const clamped = Math.min(Math.max(next, 1), total)
-    if (clamped !== page) onChange?.(clamped)
-  }
+    const clamped = Math.min(Math.max(next, 1), total);
+    if (clamped !== page) onChange?.(clamped);
+  };
 
-  const pages = Array.from({ length: total }, (_, i) => i + 1)
+  const pages = Array.from({ length: total }, (_, i) => i + 1);
 
   return (
     <nav
       aria-label="페이지네이션"
-      className={['flex items-center justify-center gap-2', className]
+      className={["flex items-center justify-center gap-2", className]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       <div className="flex shrink-0 items-center gap-2">
         <ArrowButton
@@ -78,27 +83,27 @@ export function Pagination({ page, total, onChange, className }: PaginationProps
 
       <div className="flex shrink-0 items-center justify-center gap-2">
         {pages.map((p) => {
-          const active = p === page
+          const active = p === page;
           return (
             <button
               key={p}
               type="button"
               aria-label={`${p} 페이지`}
-              aria-current={active ? 'page' : undefined}
+              aria-current={active ? "page" : undefined}
               onClick={() => go(p)}
               style={{
                 color: active
-                  ? 'var(--color-primary-800)'
-                  : 'var(--color-greyscale-550)',
+                  ? "var(--color-primary-800)"
+                  : "var(--color-greyscale-550)",
               }}
               className={[
-                'flex h-8 shrink-0 cursor-pointer items-center justify-center px-2.5',
-                active ? 'text-body2-semibold' : 'text-body2-regular',
-              ].join(' ')}
+                "flex h-8 shrink-0 cursor-pointer items-center justify-center px-2.5",
+                active ? "text-body2-semibold" : "text-body2-regular",
+              ].join(" ")}
             >
               {p}
             </button>
-          )
+          );
         })}
       </div>
 
@@ -117,5 +122,5 @@ export function Pagination({ page, total, onChange, className }: PaginationProps
         />
       </div>
     </nav>
-  )
+  );
 }

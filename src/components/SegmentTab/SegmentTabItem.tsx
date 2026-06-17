@@ -1,11 +1,10 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-export interface SegmentTabItemProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SegmentTabItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** 세그먼트 라벨 */
-  children: ReactNode
+  children: ReactNode;
   /** 활성 상태 — true면 흰 배경 + 그림자 + primary 글자색 */
-  active?: boolean
+  active?: boolean;
 }
 
 /**
@@ -18,7 +17,7 @@ export function SegmentTabItem({
   children,
   active = false,
   className,
-  type = 'button',
+  type = "button",
   ...rest
 }: SegmentTabItemProps) {
   return (
@@ -26,24 +25,24 @@ export function SegmentTabItem({
       type={type}
       style={{
         color: active
-          ? 'var(--color-primary-800)'
-          : 'var(--color-greyscale-600)',
+          ? "var(--color-primary-800)"
+          : "var(--color-greyscale-600)",
         backgroundColor: active
-          ? 'var(--color-neutral-0)'
-          : 'var(--color-neutral-100)',
+          ? "var(--color-neutral-0)"
+          : "var(--color-neutral-100)",
       }}
       className={[
-        'flex flex-1 basis-0 cursor-pointer items-center justify-center',
-        'whitespace-nowrap rounded-xs px-2.5 py-2 text-center text-body1-regular',
-        active ? 'shadow-segment' : '',
-        'disabled:cursor-not-allowed disabled:opacity-50',
+        "flex flex-1 basis-0 cursor-pointer items-center justify-center",
+        "whitespace-nowrap rounded-xs px-2.5 py-2 text-center text-body1-regular",
+        active ? "shadow-segment" : "",
+        "disabled:cursor-not-allowed disabled:opacity-50",
         className,
       ]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
       {...rest}
     >
       {children}
     </button>
-  )
+  );
 }

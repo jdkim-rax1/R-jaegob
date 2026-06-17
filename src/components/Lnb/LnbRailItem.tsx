@@ -1,14 +1,13 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { Icon, type IconName } from '../Icon/Icon'
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { Icon, type IconName } from "../Icon/Icon";
 
-export interface LnbRailItemProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface LnbRailItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** 메뉴 라벨 (아이콘 하단) */
-  children: ReactNode
+  children: ReactNode;
   /** 메뉴 아이콘 (size 32, 텍스트 색 상속) */
-  icon: IconName
+  icon: IconName;
   /** 선택 상태 — true면 primary-100 배경 + primary-700 글자·아이콘 + 좌측 액센트 바 */
-  active?: boolean
+  active?: boolean;
 }
 
 /**
@@ -22,7 +21,7 @@ export function LnbRailItem({
   icon,
   active = false,
   className,
-  type = 'button',
+  type = "button",
   ...rest
 }: LnbRailItemProps) {
   return (
@@ -30,31 +29,31 @@ export function LnbRailItem({
       type={type}
       style={{
         color: active
-          ? 'var(--color-primary-700)'
-          : 'var(--color-greyscale-400)',
+          ? "var(--color-primary-700)"
+          : "var(--color-greyscale-400)",
         backgroundColor: active
-          ? 'var(--color-primary-100)'
-          : 'var(--color-neutral-0)',
+          ? "var(--color-primary-100)"
+          : "var(--color-neutral-0)",
       }}
       className={[
-        'relative flex w-full cursor-pointer flex-col items-center justify-center',
-        'py-3 text-center text-body3-semibold',
-        'disabled:cursor-not-allowed disabled:opacity-50',
+        "relative flex w-full cursor-pointer flex-col items-center justify-center",
+        "py-3 text-center text-body3-semibold",
+        "disabled:cursor-not-allowed disabled:opacity-50",
         className,
       ]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
       {...rest}
     >
       {active && (
         <span
           aria-hidden
-          style={{ backgroundColor: 'var(--color-primary-700)' }}
+          style={{ backgroundColor: "var(--color-primary-700)" }}
           className="absolute left-0 top-3 h-13 w-0.5 rounded-r-sm"
         />
       )}
       <Icon name={icon} size={32} color="current" />
       <span>{children}</span>
     </button>
-  )
+  );
 }

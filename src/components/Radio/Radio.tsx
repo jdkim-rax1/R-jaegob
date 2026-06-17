@@ -3,7 +3,7 @@ import {
   type ChangeEvent,
   type InputHTMLAttributes,
   type ReactNode,
-} from 'react'
+} from "react";
 
 /**
  * checked × disabled → 링(원) 배경/보더 색 토큰(var 참조).
@@ -17,42 +17,44 @@ function ringStyle(
   if (disabled) {
     return checked
       ? {
-          backgroundColor: 'var(--color-neutral-0)',
-          borderColor: 'var(--color-primary-300)',
+          backgroundColor: "var(--color-neutral-0)",
+          borderColor: "var(--color-primary-300)",
         }
       : {
-          backgroundColor: 'var(--color-neutral-100)',
-          borderColor: 'var(--color-greyscale-300)',
-        }
+          backgroundColor: "var(--color-neutral-100)",
+          borderColor: "var(--color-greyscale-300)",
+        };
   }
   return checked
     ? {
-        backgroundColor: 'var(--color-neutral-0)',
-        borderColor: 'var(--color-primary-800)',
+        backgroundColor: "var(--color-neutral-0)",
+        borderColor: "var(--color-primary-800)",
       }
     : {
-        backgroundColor: 'var(--color-neutral-0)',
-        borderColor: 'var(--color-greyscale-550)',
-      }
+        backgroundColor: "var(--color-neutral-0)",
+        borderColor: "var(--color-greyscale-550)",
+      };
 }
 
 /** 선택 시 내부 점 색 — disabled 면 옅은 톤(primary-300) */
 function dotColor(disabled: boolean): string {
-  return disabled ? 'var(--color-primary-300)' : 'var(--color-primary-800)'
+  return disabled ? "var(--color-primary-300)" : "var(--color-primary-800)";
 }
 
-export interface RadioProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+export interface RadioProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "size" | "type"
+> {
   /** 선택 상태(controlled). 지정 시 외부에서 제어 */
-  checked?: boolean
+  checked?: boolean;
   /** 초기 선택 상태(uncontrolled) */
-  defaultChecked?: boolean
+  defaultChecked?: boolean;
   /** 비활성화 — 기본 false */
-  disabled?: boolean
+  disabled?: boolean;
   /** 라벨 텍스트 — 지정 시 라디오 우측에 노출 */
-  label?: ReactNode
+  label?: ReactNode;
   /** 선택 변경 콜백 */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function Radio({
@@ -64,24 +66,24 @@ export function Radio({
   className,
   ...rest
 }: RadioProps) {
-  const [internal, setInternal] = useState(defaultChecked)
-  const isControlled = checked !== undefined
-  const isChecked = isControlled ? checked : internal
+  const [internal, setInternal] = useState(defaultChecked);
+  const isControlled = checked !== undefined;
+  const isChecked = isControlled ? checked : internal;
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    if (!isControlled) setInternal(event.target.checked)
-    onChange?.(event)
+    if (!isControlled) setInternal(event.target.checked);
+    onChange?.(event);
   }
 
   return (
     <label
       className={[
-        'inline-flex items-center gap-2',
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+        "inline-flex items-center gap-2",
+        disabled ? "cursor-not-allowed" : "cursor-pointer",
         className,
       ]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       <input
         type="radio"
@@ -108,5 +110,5 @@ export function Radio({
         <span className="text-body1-regular text-fg-muted">{label}</span>
       )}
     </label>
-  )
+  );
 }

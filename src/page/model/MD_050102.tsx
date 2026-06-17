@@ -1,4 +1,4 @@
-import { ModelInspectionModal } from '../modal/ModelInspectionModal'
+import { ModelInspectionModal } from "../modal/ModelInspectionModal";
 
 /**
  * MD_050102_P01 — "모델 검사 결과" 모달 (Figma 40000001-41787 / 4032-25384).
@@ -8,9 +8,9 @@ export function MD_050102() {
   return (
     <div
       className="flex min-h-screen items-center justify-center overflow-auto p-10"
-      style={{ backgroundColor: 'var(--color-overlay)' }}
+      style={{ backgroundColor: "var(--color-overlay)" }}
     >
       <ModelInspectionModal onClose={() => {}} />
     </div>
-  )
+  );
 }

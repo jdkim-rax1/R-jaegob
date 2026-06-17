@@ -15,15 +15,15 @@
 
 Tailwind v4 `@theme` 네임스페이스를 그대로 따른다.
 
-| 카테고리 | prefix | 사용처 |
-|----------|--------|--------|
-| 색상 | `--color-*` | `var(--color-primary)`, `bg-primary` |
-| 간격 | (Tailwind v4 기본 스케일) | `p-4`, `gap-6` (4px 단위 숫자 유틸) |
-| 반경 | `--radius-*` | `rounded-md` |
-| 타이포(폰트) | `--font-*` | `font-sans` |
-| 타이포(크기) | `--text-*` | `text-base` |
-| 그림자 | `--shadow-*` | `shadow-md` |
-| 브레이크포인트 | `--breakpoint-*` | 반응형 분기 |
+| 카테고리       | prefix                    | 사용처                               |
+| -------------- | ------------------------- | ------------------------------------ |
+| 색상           | `--color-*`               | `var(--color-primary)`, `bg-primary` |
+| 간격           | (Tailwind v4 기본 스케일) | `p-4`, `gap-6` (4px 단위 숫자 유틸)  |
+| 반경           | `--radius-*`              | `rounded-md`                         |
+| 타이포(폰트)   | `--font-*`                | `font-sans`                          |
+| 타이포(크기)   | `--text-*`                | `text-base`                          |
+| 그림자         | `--shadow-*`              | `shadow-md`                          |
+| 브레이크포인트 | `--breakpoint-*`          | 반응형 분기                          |
 
 - 의미 기반 이름을 쓴다(`--color-primary`, `--color-danger`) — 값 기반(`--color-blue-500`) 지양.
 - 토큰 한 개 = 한 줄. 정렬·그룹은 위 카테고리 주석 블록을 따른다.

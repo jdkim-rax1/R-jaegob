@@ -12,11 +12,13 @@ description: >-
 다른 스킬(`figma-to-code`, `new-component`)의 마지막 단계로도 호출되고, 단독으로도 쓴다.
 
 ## 1. Clarify (원칙 1)
+
 - [ ] 검증 대상 파일/컴포넌트
 - [ ] **완료 조건**이 무엇인지 (불명확하면 요청자에게 확인)
 - [ ] (있으면) 원본 Figma 디자인
 
 ## 2. Run — 체크리스트 측정 (원칙 4)
+
 `design-reviewer` 에이전트가 각 항목을 **근거와 함께** 측정한다:
 
 - [ ] **하드코딩 0** — `Grep` 으로 hex/px/rgb/arbitrary Tailwind 직접 확인
@@ -30,12 +32,15 @@ description: >-
 > (`figma-implementer` / `component-builder` / `token-guardian`)로 돌려보낸다.
 
 ## 3. Verdict
+
 ```
 판정: PASS / FAIL
 - 항목별 결과(근거 포함)
 - FAIL 시: 무엇이 / 어디서 / 왜 / 어느 에이전트로 보낼지
 ```
+
 FAIL 항목이 하나라도 있으면 **절대 "완료"라고 말하지 않는다.**
 
 ## 사용 에이전트
+
 `design-reviewer` (검증 전담)

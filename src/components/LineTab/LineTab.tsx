@@ -1,15 +1,15 @@
-import { LineTabItem, type LineTabSize } from './LineTabItem'
+import { LineTabItem, type LineTabSize } from "./LineTabItem";
 
 export interface LineTabProps {
   /** 탭 항목 라벨 목록 (Figma segments 2~5) */
-  items: string[]
+  items: string[];
   /** 선택된 항목 인덱스 */
-  value?: number
+  value?: number;
   /** 항목 클릭 시 인덱스 전달 */
-  onChange?: (index: number) => void
+  onChange?: (index: number) => void;
   /** 크기 — l(Title3) / m(Body2) */
-  size?: LineTabSize
-  className?: string
+  size?: LineTabSize;
+  className?: string;
 }
 
 /**
@@ -20,22 +20,18 @@ export function LineTab({
   items,
   value = 0,
   onChange,
-  size = 'l',
+  size = "l",
   className,
 }: LineTabProps) {
-  const height = size === 'l' ? 'h-12' : 'h-10'
+  const height = size === "l" ? "h-12" : "h-10";
 
   return (
     <div
       role="tablist"
-      style={{ borderColor: 'var(--color-greyscale-300)' }}
-      className={[
-        'flex items-start border-b border-solid',
-        height,
-        className,
-      ]
+      style={{ borderColor: "var(--color-greyscale-300)" }}
+      className={["flex items-start border-b border-solid", height, className]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       {items.map((label, index) => (
         <LineTabItem
@@ -50,5 +46,5 @@ export function LineTab({
         </LineTabItem>
       ))}
     </div>
-  )
+  );
 }

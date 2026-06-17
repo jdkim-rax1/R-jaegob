@@ -1,23 +1,23 @@
-import { LnbRailItem } from './LnbRailItem'
-import type { IconName } from '../Icon/Icon'
+import { LnbRailItem } from "./LnbRailItem";
+import type { IconName } from "../Icon/Icon";
 
 export interface LnbRailMenuItem {
   /** 항목 식별값 (선택 비교용) */
-  value: string
+  value: string;
   /** 메뉴 라벨 */
-  label: string
+  label: string;
   /** 메뉴 아이콘 (size 32) */
-  icon: IconName
+  icon: IconName;
 }
 
 export interface LnbRailProps {
   /** 메뉴 항목 목록 (홈~관리) */
-  items: LnbRailMenuItem[]
+  items: LnbRailMenuItem[];
   /** 활성 항목 value */
-  value?: string
+  value?: string;
   /** 항목 클릭 시 value 전달 */
-  onChange?: (value: string) => void
-  className?: string
+  onChange?: (value: string) => void;
+  className?: string;
 }
 
 /**
@@ -29,25 +29,25 @@ export function LnbRail({ items, value, onChange, className }: LnbRailProps) {
   return (
     <nav
       style={{
-        width: 'var(--layout-lnb-rail-w)',
-        backgroundColor: 'var(--color-neutral-0)',
-        borderColor: 'var(--color-greyscale-200)',
+        width: "var(--layout-lnb-rail-w)",
+        backgroundColor: "var(--color-neutral-0)",
+        borderColor: "var(--color-greyscale-200)",
       }}
-      className={['flex h-full flex-col border-r border-solid pb-8', className]
+      className={["flex h-full flex-col border-r border-solid pb-8", className]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       {items.map((item) => (
         <LnbRailItem
           key={item.value}
           icon={item.icon}
           active={item.value === value}
-          aria-current={item.value === value ? 'page' : undefined}
+          aria-current={item.value === value ? "page" : undefined}
           onClick={() => onChange?.(item.value)}
         >
           {item.label}
         </LnbRailItem>
       ))}
     </nav>
-  )
+  );
 }

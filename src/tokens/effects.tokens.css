@@ -10,17 +10,17 @@
  */
 @theme {
   /* ---- Radius ---- */
-  --radius-xs: 6px;   /* 옵션/토글 칩 (option button) */
-  --radius-sm: 4px;   /* ≤40px 버튼 */
-  --radius-md: 8px;   /* 버튼·작은 카드 공통 */
-  --radius-lg: 12px;  /* 기본 카드·셰이프 */
-  --radius-xl: 16px;  /* 바텀시트·메인카드 */
+  --radius-xs: 6px; /* 옵션/토글 칩 (option button) */
+  --radius-sm: 4px; /* ≤40px 버튼 */
+  --radius-md: 8px; /* 버튼·작은 카드 공통 */
+  --radius-lg: 12px; /* 기본 카드·셰이프 */
+  --radius-xl: 16px; /* 바텀시트·메인카드 */
   --radius-full: 9999px; /* pill/원형 유틸 (Figma 스펙 외) */
 
   /* ---- Drop Shadow (콘텐츠 위계별) ---- */
   --shadow-1: 0 -4px 20px #00000014; /* Contents_main: 서브페이지 콘텐츠 박스 (black 8%) */
-  --shadow-2: 0 2px 6px #1625421A;   /* Card_main: 기본 카드 (navy 10%) */
-  --shadow-3: 0 0 8px #1625420F;     /* Card_sub: 팝업·보조 카드 (navy 6%) */
-  --shadow-4: 0 7px 25px #0000004D;  /* Card_contents (black 30%) */
+  --shadow-2: 0 2px 6px #1625421a; /* Card_main: 기본 카드 (navy 10%) */
+  --shadow-3: 0 0 8px #1625420f; /* Card_sub: 팝업·보조 카드 (navy 6%) */
+  --shadow-4: 0 7px 25px #0000004d; /* Card_contents (black 30%) */
   --shadow-segment: 0 0 1px #00000040; /* 세그먼트 활성 칩 (SegmentTab segmentSelect Active, black 25%) */
 }

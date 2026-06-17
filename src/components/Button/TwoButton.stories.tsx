@@ -1,21 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { TwoButton } from './TwoButton'
+import type { Meta, StoryObj } from "@storybook/react";
+import { TwoButton } from "./TwoButton";
 
 const meta: Meta<typeof TwoButton> = {
-  title: 'Components/TwoButton',
+  title: "Components/TwoButton",
   component: TwoButton,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/lhY9RZGmQGc4b97BJaemoJ/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%B2_Design-Style-Guide?node-id=1945-20216',
+      type: "figma",
+      url: "https://www.figma.com/design/lhY9RZGmQGc4b97BJaemoJ/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%B2_Design-Style-Guide?node-id=1945-20216",
     },
   },
   argTypes: {
-    size: { control: 'inline-radio', options: ['lg', 'md', 'sm'] },
-    state: { control: 'inline-radio', options: ['enabled', 'pressed', 'disabled'] },
+    size: { control: "inline-radio", options: ["lg", "md", "sm"] },
+    state: {
+      control: "inline-radio",
+      options: ["enabled", "pressed", "disabled"],
+    },
   },
-  args: { size: 'md', state: 'enabled' },
+  args: { size: "md", state: "enabled" },
   decorators: [
     (Story) => (
       <div className="w-96">
@@ -23,12 +26,12 @@ const meta: Meta<typeof TwoButton> = {
       </div>
     ),
   ],
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof TwoButton>
+type Story = StoryObj<typeof TwoButton>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 /** 사이즈별 — lg / md / sm */
 export const Sizes: Story = {
@@ -39,7 +42,7 @@ export const Sizes: Story = {
       <TwoButton size="sm" />
     </div>
   ),
-}
+};
 
 /** 상태별 — enabled / pressed / disabled */
 export const States: Story = {
@@ -50,4 +53,4 @@ export const States: Story = {
       <TwoButton state="disabled" />
     </div>
   ),
-}
+};

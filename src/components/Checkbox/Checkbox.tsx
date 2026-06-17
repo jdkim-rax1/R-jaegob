@@ -1,5 +1,5 @@
-import { useState, type ChangeEvent, type InputHTMLAttributes } from 'react'
-import { Icon } from '../Icon/Icon'
+import { useState, type ChangeEvent, type InputHTMLAttributes } from "react";
+import { Icon } from "../Icon/Icon";
 
 /**
  * checked × disabled → 박스 배경/보더/체크 색 토큰(var 참조).
@@ -14,39 +14,41 @@ function boxStyle(
   if (disabled) {
     return checked
       ? {
-          backgroundColor: 'var(--color-primary-300)',
-          borderColor: 'transparent',
-          color: 'var(--color-text-white)',
+          backgroundColor: "var(--color-primary-300)",
+          borderColor: "transparent",
+          color: "var(--color-text-white)",
         }
       : {
-          backgroundColor: 'var(--color-neutral-100)',
-          borderColor: 'var(--color-greyscale-300)',
-          color: 'var(--color-greyscale-300)',
-        }
+          backgroundColor: "var(--color-neutral-100)",
+          borderColor: "var(--color-greyscale-300)",
+          color: "var(--color-greyscale-300)",
+        };
   }
   return checked
     ? {
-        backgroundColor: 'var(--color-primary-800)',
-        borderColor: 'var(--color-primary-800)',
-        color: 'var(--color-text-white)',
+        backgroundColor: "var(--color-primary-800)",
+        borderColor: "var(--color-primary-800)",
+        color: "var(--color-text-white)",
       }
     : {
-        backgroundColor: 'var(--color-neutral-0)',
-        borderColor: 'var(--color-greyscale-550)',
-        color: 'var(--color-greyscale-550)',
-      }
+        backgroundColor: "var(--color-neutral-0)",
+        borderColor: "var(--color-greyscale-550)",
+        color: "var(--color-greyscale-550)",
+      };
 }
 
-export interface CheckboxProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+export interface CheckboxProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "size" | "type"
+> {
   /** 선택 상태(controlled). 지정 시 외부에서 제어 */
-  checked?: boolean
+  checked?: boolean;
   /** 초기 선택 상태(uncontrolled) */
-  defaultChecked?: boolean
+  defaultChecked?: boolean;
   /** 비활성화 — 기본 false */
-  disabled?: boolean
+  disabled?: boolean;
   /** 선택 변경 콜백 */
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function Checkbox({
@@ -57,24 +59,24 @@ export function Checkbox({
   className,
   ...rest
 }: CheckboxProps) {
-  const [internal, setInternal] = useState(defaultChecked)
-  const isControlled = checked !== undefined
-  const isChecked = isControlled ? checked : internal
+  const [internal, setInternal] = useState(defaultChecked);
+  const isControlled = checked !== undefined;
+  const isChecked = isControlled ? checked : internal;
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    if (!isControlled) setInternal(event.target.checked)
-    onChange?.(event)
+    if (!isControlled) setInternal(event.target.checked);
+    onChange?.(event);
   }
 
   return (
     <label
       className={[
-        'inline-flex',
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+        "inline-flex",
+        disabled ? "cursor-not-allowed" : "cursor-pointer",
         className,
       ]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       <input
         type="checkbox"
@@ -93,5 +95,5 @@ export function Checkbox({
         <Icon name="check" size={24} />
       </span>
     </label>
-  )
+  );
 }
