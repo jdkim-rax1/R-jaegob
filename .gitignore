@@ -6,3 +6,9 @@ storybook-static
 .DS_Store
 
 *storybook.log
+
+# 툴 캐시 / 산출물
+.kombai/
+
+# macOS Finder 중복 복사 아티팩트
+* [0-9].tsx

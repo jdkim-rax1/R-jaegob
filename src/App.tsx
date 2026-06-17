@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactElement } from "react";
 import { MD_050101 } from "./page/model/MD_050101";
 import { MD_050102 } from "./page/model/MD_050102";
+import { LG_010102 } from "./page/LG_010102/LG_010102";
 import { Template } from "./page/Template/Template";
 
 /** 페이지 라우트 — 새 페이지는 이 배열에만 추가하면 홈 목록과 경로가 함께 생긴다. */
@@ -19,6 +20,11 @@ const ROUTES: Route[] = [
     path: "/model/MD_050102",
     title: "MD_050102 · 모델 검사 결과 팝업",
     element: <MD_050102 />,
+  },
+  {
+    path: "/login/LG_010102",
+    title: "LG_010102 · 회원가입 완료 디스크립션",
+    element: <LG_010102 />,
   },
 ];
 
