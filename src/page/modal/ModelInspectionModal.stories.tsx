@@ -22,7 +22,5 @@ const meta: Meta<typeof ModelInspectionModal> = {
 export default meta;
 
 export const Default: StoryObj<typeof ModelInspectionModal> = {
-  args: {
-    onClose: () => {},
-  },
+  args: { onClose: () => {} },
 };

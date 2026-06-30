@@ -4,7 +4,7 @@ import { Alert } from "./Alert";
 import { Icon } from "../Icon/Icon";
 
 const FIGMA_URL =
-  "https://www.figma.com/design/tjxONVhn5Zs2XIlu3M8wZc/-%EC%95%8C%EC%A0%9C%EA%B3%B1-%EA%B3%B5%EC%9C%A0%EC%9A%A9-%EC%88%98%EC%97%85%EC%9E%90%EB%A3%8C?node-id=4030-11567";
+  "https://www.figma.com/design/cT3BEonDHEGYmWQjId4wNm/jd-%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%88%98%EC%97%85%EC%9E%90%EB%A3%8C--Copy-?node-id=4030-11567";
 
 const meta = {
   title: "Components/Alert",

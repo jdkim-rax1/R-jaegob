@@ -23,17 +23,17 @@ export type AlertVariant =
 type VariantConfig = { header: boolean; icon: boolean; buttons: 1 | 2 };
 
 const VARIANT_CONFIG: Record<AlertVariant, VariantConfig> = {
-  message: { header: true, icon: false, buttons: 1 },
-  "message-two-button": { header: true, icon: false, buttons: 2 },
+  message: { header: false, icon: false, buttons: 1 },
+  "message-two-button": { header: false, icon: false, buttons: 2 },
   "close-button": { header: true, icon: false, buttons: 1 },
   "close-two-button": { header: true, icon: false, buttons: 2 },
   image: { header: false, icon: true, buttons: 1 },
   "image-two-button": { header: true, icon: true, buttons: 2 },
-  "close-image": { header: false, icon: true, buttons: 1 },
+  "close-image": { header: true, icon: true, buttons: 1 },
   errorcase: { header: true, icon: false, buttons: 1 },
   errorcase2: { header: true, icon: false, buttons: 2 },
-  "bullet-list": { header: true, icon: false, buttons: 2 },
-  "bullet-list-2": { header: true, icon: false, buttons: 2 },
+  "bullet-list": { header: false, icon: false, buttons: 2 },
+  "bullet-list-2": { header: false, icon: false, buttons: 2 },
 };
 
 export interface AlertProps {
@@ -73,6 +73,9 @@ export function Alert({
 
   return (
     <div
+      role="alertdialog"
+      aria-modal="true"
+      aria-labelledby={cfg.header ? "alert-title" : undefined}
       style={{ boxShadow: "var(--shadow-3)" }}
       className={["flex w-96 flex-col gap-6 rounded-xl bg-bg pb-6", className]
         .filter(Boolean)
@@ -80,7 +83,7 @@ export function Alert({
     >
       {cfg.header && (
         <header className="px-6 pt-6 pb-4">
-          <h2 className="text-title3-bold text-fg">{title}</h2>
+          <h2 id="alert-title" className="text-title3-bold text-fg">{title}</h2>
         </header>
       )}
 

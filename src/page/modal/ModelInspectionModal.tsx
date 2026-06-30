@@ -8,23 +8,19 @@ import { TableHeadCell, TableDataCell } from "../../components/Table";
  * 디자인 시스템 토큰 + 기존 컴포넌트(Label / Table 셀 / Icon)만으로 구성한다.
  */
 export interface ModelInspectionModalProps {
-  /** 닫기(X) 버튼 클릭 핸들러 */
   onClose?: () => void;
   className?: string;
 }
 
-/** Divider 라인 색 greyscale-500 — semantic 유틸이 없어 inline var() 로 참조(Table 셀 패턴). */
 const DIVIDER_STYLE = { backgroundColor: "var(--color-greyscale-500)" };
 
 function Divider() {
   return <div style={DIVIDER_STYLE} className="h-px w-full shrink-0" />;
 }
 
-/** TH(고정폭) + TD(가변) 한 쌍. 행 안에서 flex-1 로 1열 또는 2열 분할에 모두 대응한다. */
 function Pair({ head, children }: { head: ReactNode; children?: ReactNode }) {
   return (
     <div className="flex min-w-0 flex-1 items-stretch">
-      {/* w-38 = TH 고정폭(38*4=152). h-auto! 로 셀 기본 h-12 를 풀어 행 높이에 맞춰 늘어남 */}
       <TableHeadCell className="h-auto! w-38 shrink-0 self-stretch">
         {head}
       </TableHeadCell>
@@ -35,7 +31,6 @@ function Pair({ head, children }: { head: ReactNode; children?: ReactNode }) {
   );
 }
 
-/** 섹션: 제목 + Divider + 행들. */
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex w-full flex-col gap-3">
@@ -48,7 +43,6 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-/** 한 행(전체폭). 내부 Pair 들이 flex-1 로 균등 분할된다. */
 function Row({ children }: { children: ReactNode }) {
   return <div className="flex w-full items-stretch">{children}</div>;
 }
@@ -59,22 +53,17 @@ const DETAIL_VACCINE =
 const DETAIL_VULN =
   'VULNERABILITY_CHECK { "total_vulnerabilities": 0, "vulnerabilities_by_severity": 0, "vulnerabilities": [] }';
 
-export function ModelInspectionModal({
-  onClose,
-  className,
-}: ModelInspectionModalProps) {
+export function ModelInspectionModal({ onClose, className }: ModelInspectionModalProps) {
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
       style={{ width: "var(--layout-modal-lg-w)" }}
-      className={["flex flex-col rounded-xl bg-bg", className]
-        .filter(Boolean)
-        .join(" ")}
+      className={["flex flex-col rounded-xl bg-bg", className].filter(Boolean).join(" ")}
     >
-      {/* Header */}
       <div className="flex items-center gap-4 rounded-t-xl bg-bg px-10 pb-6 pt-8">
-        <h2 className="min-w-0 flex-1 text-title1-bold text-fg">
-          모델 검사 결과
-        </h2>
+        <h2 id="modal-title" className="min-w-0 flex-1 text-title1-bold text-fg">모델 검사 결과</h2>
         <button
           type="button"
           aria-label="닫기"
@@ -85,8 +74,7 @@ export function ModelInspectionModal({
         </button>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col gap-8 overflow-y-auto px-10">
+      <div className="flex flex-col gap-8 overflow-y-auto px-10" tabIndex={0}>
         <Section title="외부망 백신점검 결과 요약">
           <Row>
             <Pair head="백신 검사 결과">
@@ -133,7 +121,6 @@ export function ModelInspectionModal({
         </Section>
       </div>
 
-      {/* Bottom (Figma: 버튼 영역, 현 프레임은 비어 있음) */}
       <div className="h-30 shrink-0 rounded-b-xl bg-bg" />
     </div>
   );
