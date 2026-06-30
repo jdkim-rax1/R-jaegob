@@ -3,7 +3,7 @@ name: token-guardian
 description: >-
   하드코딩된 디자인 값(hex/px/rgb/arbitrary Tailwind)을 감지·리포트하고, raw 값을 적절한
   토큰에 매핑하거나 누락된 토큰을 design-tokens.css 에 추가할 때 사용. Figma 변수를 토큰으로
-  동기화할 때도 사용. "토큰 점검", "하드코딩 찾아줘", "이 색을 토큰으로", "Figma 변수 동기화" 등에 위임.
+  동기화할 때도 사용. "토큰 점검", "하드코딩 찾아줘", "이 색을 토큰으로", "Figma 변수 동기화" 등에 위임. **깃허브 변경 테스트 추가
 tools: Read, Grep, Glob
 mcp__plugin_figma_figma__get_variable_defs
 ---
